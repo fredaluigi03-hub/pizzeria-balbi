@@ -82,10 +82,12 @@ export default function GallerySection() {
         {/* Masonry grid */}
         <div className="masonry-grid">
           {images.map((img, i) => (
-            <div
+            <button
               key={img.src}
-              className="masonry-item interactive relative overflow-hidden rounded-sm group"
+              type="button"
+              className="masonry-item gallery-tile interactive relative w-full overflow-hidden rounded-sm group text-left"
               onClick={() => setLightbox(img.src)}
+              aria-label={`Apri foto: ${img.alt}`}
               style={{
                 opacity: 0,
                 animation: headerVisible ? `fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) ${i * 0.12}s forwards` : 'none',
@@ -95,6 +97,8 @@ export default function GallerySection() {
                 src={img.src}
                 alt={img.alt}
                 className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0d]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -109,7 +113,7 @@ export default function GallerySection() {
               <div
                 className="absolute inset-0 border border-gold/0 group-hover:border-gold/30 transition-all duration-300 rounded-sm pointer-events-none"
               />
-            </div>
+            </button>
           ))}
         </div>
       </div>
@@ -123,6 +127,7 @@ export default function GallerySection() {
           <button
             className="interactive absolute top-6 right-6 w-10 h-10 rounded-full glass flex items-center justify-center text-cream hover:text-gold transition-colors"
             onClick={() => setLightbox(null)}
+            aria-label="Chiudi immagine"
           >
             <X size={18} />
           </button>

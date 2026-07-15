@@ -61,7 +61,7 @@ export default function ContactSection() {
               Prenotazione
             </h3>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5" aria-label="Modulo di prenotazione">
               {[
                 { key: 'name', label: 'Il tuo nome', type: 'text', placeholder: 'Mario Rossi' },
                 { key: 'phone', label: 'Telefono', type: 'tel', placeholder: '+39 333 000 0000' },
@@ -79,6 +79,7 @@ export default function ContactSection() {
                     placeholder={field.placeholder}
                     value={form[field.key as keyof typeof form]}
                     onChange={(e) => setForm({ ...form, [field.key]: e.target.value })}
+                    required={field.key !== 'date'}
                     className="interactive bg-white/5 border border-white/10 rounded-sm px-4 py-3 text-cream font-geist text-sm focus:outline-none focus:border-gold/50 transition-colors placeholder:text-cream/20"
                     style={{ fontFamily: "'Geist', sans-serif" }}
                   />
@@ -110,6 +111,7 @@ export default function ContactSection() {
                 <Send size={14} />
                 {sent ? 'Messaggio inviato!' : 'Invia via WhatsApp'}
               </button>
+              <p className="sr-only" aria-live="polite">{sent ? 'Apertura di WhatsApp completata' : ''}</p>
             </form>
           </div>
 

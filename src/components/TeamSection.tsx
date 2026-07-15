@@ -35,6 +35,8 @@ export default function TeamSection() {
               alt="Il team di Pizzeria Balbi"
               className="w-full object-cover rounded-sm transition-transform duration-700 hover:scale-105"
               style={{ maxHeight: '600px', objectPosition: 'center top' }}
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0d]/70 via-transparent to-transparent pointer-events-none" />
 
