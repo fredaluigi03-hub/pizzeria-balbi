@@ -27,10 +27,10 @@ export default function Hero() {
       {/* Parallax image */}
       <div ref={imgRef} className="absolute inset-0 scale-110">
         <img
-          src="/images/menu/ChatGPT_Image_15_lug_2026,_15_03_18.png"
+          src="/images/menu/ChatGPT_Image_15_lug_2026,_15_03_18 copy.png"
           alt="Forno a legna Pizzeria Balbi"
           className="w-full h-full object-cover"
-          style={{ objectPosition: 'center 30%' }}
+          style={{ objectPosition: 'center 40%' }}
         />
       </div>
 

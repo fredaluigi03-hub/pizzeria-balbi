@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const links = [
-  { label: 'Il Forno', href: '#forno' },
-  { label: 'Menu', href: '#menu' },
-  { label: 'Dolci', href: '#dolci' },
-  { label: 'Birre', href: '#birre' },
-  { label: 'Team', href: '#team' },
-  { label: 'Contatti', href: '#contatti' },
+  { label: 'Il Forno', href: '#forno', page: false },
+  { label: 'Menu', href: '#menu', page: false },
+  { label: 'Dolci', href: '/menu?category=dolci', page: true },
+  { label: 'Birre', href: '#birre', page: false },
+  { label: 'Team', href: '#team', page: false },
+  { label: 'Contatti', href: '#contatti', page: false },
 ];
 
 export default function Navigation() {
@@ -22,6 +22,10 @@ export default function Navigation() {
 
   const handleNavClick = (href: string) => {
     setOpen(false);
+    if (href.startsWith('/')) {
+      window.location.href = href;
+      return;
+    }
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };

@@ -55,9 +55,9 @@ export default function Footer() {
             <ul className="flex flex-col gap-3">
               {[
                 { label: 'Il Forno', href: '#forno' },
-                { label: 'Menu Pizza', href: '#menu' },
-                { label: 'Dolci Artigianali', href: '#dolci' },
-                { label: 'Birre Craft', href: '#birre' },
+                { label: 'Menu Pizza', href: '/menu?category=pizze' },
+                { label: 'Dolci Artigianali', href: '/menu?category=dolci' },
+                { label: 'Birre Craft', href: '/menu?category=birre' },
                 { label: 'Il Team', href: '#team' },
                 { label: 'Galleria', href: '#galleria' },
                 { label: 'Prenota', href: '#contatti' },
@@ -68,8 +68,10 @@ export default function Footer() {
                     className="interactive text-cream/40 hover:text-gold transition-colors duration-200 font-geist text-sm"
                     style={{ fontFamily: "'Geist', sans-serif" }}
                     onClick={(e) => {
-                      e.preventDefault();
-                      document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
+                      if (!link.href.startsWith('/')) {
+                        e.preventDefault();
+                        document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
+                      }
                     }}
                   >
                     {link.label}

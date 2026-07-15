@@ -6,17 +6,18 @@ type Dessert = {
   name: string;
   crop: string;
   accent: string;
+  note: string;
 };
 
 const desserts: Dessert[] = [
-  { name: 'Tiramisù', crop: '29% 22%', accent: '#f5db96' },
-  { name: 'Cannolo', crop: '60% 26%', accent: '#d28a53' },
-  { name: 'Cheesecake Pistacchio', crop: '62% 66%', accent: '#acc765' },
-  { name: 'Profiterole', crop: '43% 25%', accent: '#9a674d' },
-  { name: 'Panna Cotta', crop: '30% 59%', accent: '#f2c9c1' },
-  { name: 'Tortino Fondente', crop: '82% 45%', accent: '#9d735f' },
-  { name: 'Babà al Rum', crop: '70% 82%', accent: '#deb66a' },
-  { name: 'Millefoglie', crop: '76% 65%', accent: '#e2bd72' },
+  { name: 'Rocher', crop: '18% 15%', accent: '#c8a84b', note: 'Croccante e avvolgente' },
+  { name: 'Porcellino Rosa', crop: '72% 16%', accent: '#f4a7b9', note: 'Dolcezza irresistibile' },
+  { name: 'Mela Caramellata', crop: '50% 18%', accent: '#d4813a', note: 'Fresca e croccante' },
+  { name: 'Pistacchio', crop: '25% 62%', accent: '#8bb53f', note: 'Crema di pistacchio di Bronte' },
+  { name: 'Cheesecake', crop: '68% 64%', accent: '#e8c547', note: 'Morbida e cremosa' },
+  { name: 'Tortino al Cioccolato', crop: '44% 84%', accent: '#7a5241', note: 'Cuore caldo fondente' },
+  { name: 'Cookie Cream', crop: '83% 76%', accent: '#b0956a', note: 'Friabile e goloso' },
+  { name: 'Millefoglie', crop: '10% 80%', accent: '#deb66a', note: 'Pasta sfoglia e crema pasticcera' },
 ];
 
 function DessertCard({ dessert, index }: { dessert: Dessert; index: number }) {
@@ -44,7 +45,7 @@ function DessertCard({ dessert, index }: { dessert: Dessert; index: number }) {
       <div className="dessert-luxury-body">
         <span className="dessert-mini-line" style={{ backgroundColor: dessert.accent }} />
         <h3>{dessert.name}</h3>
-        <p>Un piccolo lusso, fatto ogni giorno.</p>
+        <p>{dessert.note}</p>
       </div>
     </article>
   );

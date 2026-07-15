@@ -105,7 +105,18 @@ function BeerCard({ beer, index }: { beer: typeof beers[0]; index: number }) {
   );
 }
 
-export default function BeersSection() {
+const drinks = [
+  { name: 'Acqua Naturale', detail: 'Bottiglia da 0.5L', price: '€1.5' },
+  { name: 'Acqua Frizzante', detail: 'Bottiglia da 0.5L', price: '€1.5' },
+  { name: 'Coca-Cola', detail: 'Lattina 33cl', price: '€2.5' },
+  { name: 'Fanta', detail: 'Lattina 33cl', price: '€2.5' },
+  { name: 'Sprite', detail: 'Lattina 33cl', price: '€2.5' },
+  { name: 'San Pellegrino', detail: 'Aranciata, Limonata 33cl', price: '€2.5' },
+  { name: 'Succhi di Frutta', detail: 'Selezione disponibile', price: '€2' },
+  { name: 'Vino della Casa', detail: 'Rosso o Bianco, calice', price: 'Chiedi' },
+];
+
+export default function BeersSection({ showDrinks = false }: { showDrinks?: boolean }) {
   const headerRef = useRef<HTMLDivElement>(null);
   const [headerVisible, setHeaderVisible] = useState(false);
   const imgRef = useRef<HTMLDivElement>(null);
@@ -139,7 +150,7 @@ export default function BeersSection() {
           <div className="relative order-2 md:order-1 overflow-hidden rounded-sm">
             <div ref={imgRef}>
               <img
-                src="/images/craft-beers/ChatGPT_Image_15_lug_2026,_15_04_59.png"
+                src="/images/craft-beers/ChatGPT_Image_15_lug_2026,_15_04_59 copy.png"
                 alt="Birre artigianali Pizzeria Balbi"
                 className="w-full object-cover rounded-sm"
                 style={{ maxHeight: '600px', objectPosition: 'center top' }}
@@ -201,6 +212,55 @@ export default function BeersSection() {
           </div>
         </div>
       </div>
+
+      {/* Drinks section */}
+      {showDrinks && (
+        <div className="max-w-7xl mx-auto px-6 md:px-12 pb-16">
+          <div className="h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent mb-12" />
+          <div className="text-center mb-10">
+            <p
+              className="font-geist text-[10px] uppercase tracking-[0.5em] text-gold"
+              style={{ fontFamily: "'Geist', sans-serif" }}
+            >
+              Bibite & Vini
+            </p>
+            <h3
+              className="font-playfair text-cream mt-3"
+              style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.8rem, 4vw, 2.8rem)' }}
+            >
+              Altre <em className="italic text-gold">Bevande</em>
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+            {drinks.map((drink) => (
+              <div
+                key={drink.name}
+                className="glass rounded-sm p-5 flex flex-col gap-2 interactive"
+                style={{ borderColor: 'rgba(232,197,71,0.12)' }}
+              >
+                <h4
+                  className="font-playfair text-cream text-lg"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  {drink.name}
+                </h4>
+                <p
+                  className="font-geist text-cream/40 text-xs"
+                  style={{ fontFamily: "'Geist', sans-serif" }}
+                >
+                  {drink.detail}
+                </p>
+                <p
+                  className="font-playfair text-gold text-lg mt-auto pt-2"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  {drink.price}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
