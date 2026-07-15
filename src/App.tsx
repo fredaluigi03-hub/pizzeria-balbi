@@ -5,12 +5,12 @@ import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import OvenSection from './components/OvenSection';
 import PizzaMenu from './components/PizzaMenu';
-import DessertsSection from './components/DessertsSection';
 import BeersSection from './components/BeersSection';
 import TeamSection from './components/TeamSection';
 import GallerySection from './components/GallerySection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import MenuExperience from './components/MenuExperience';
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
@@ -19,6 +19,7 @@ export default function App() {
     setLoaded(true);
   }, []);
 
+  if (window.location.pathname === '/menu') return <MenuExperience />;
   return (
     <div className="film-grain bg-charcoal min-h-screen">
       <Cursor />
@@ -34,7 +35,6 @@ export default function App() {
           <Hero />
           <OvenSection />
           <PizzaMenu />
-          <DessertsSection />
           <BeersSection />
           <TeamSection />
           <GallerySection />
