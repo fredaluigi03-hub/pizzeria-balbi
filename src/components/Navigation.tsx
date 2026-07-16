@@ -1,18 +1,22 @@
 import { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, User, ShoppingBag } from 'lucide-react';
+import { useOrder } from '../ordering/OrderContext';
 
 const links = [
-  { label: 'Il Forno', href: '#forno', page: false },
-  { label: 'Menu', href: '#menu', page: false },
-  { label: 'Dolci', href: '/menu?category=dolci', page: true },
-  { label: 'Birre', href: '#birre', page: false },
-  { label: 'Team', href: '#team', page: false },
-  { label: 'Contatti', href: '#contatti', page: false },
+  { label: 'Il Forno', href: '#forno' },
+  { label: 'Menu', href: '#menu' },
+  { label: 'Dolci', href: '/menu?category=dolci' },
+  { label: 'Promozioni', href: '#promozioni' },
+  { label: 'Team', href: '#team' },
+  { label: 'Contatti', href: '#contatti' },
 ];
 
-export default function Navigation() {
+type Props = { onAccountOpen: () => void };
+
+export default function Navigation({ onAccountOpen }: Props) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { dispatch, cartCount } = useOrder();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -30,6 +34,11 @@ export default function Navigation() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const openOrdering = () => {
+    setOpen(false);
+    dispatch({ type: 'OPEN', payload: null });
+  };
+
   return (
     <>
       <nav
@@ -41,20 +50,11 @@ export default function Navigation() {
         }}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <a
-            href="/"
-            className="flex flex-col items-start interactive"
-          >
-            <span
-              className="text-[8px] uppercase tracking-[0.4em] text-gold font-geist font-light leading-none"
-              style={{ fontFamily: "'Geist', sans-serif" }}
-            >
+          <a href="/" className="flex flex-col items-start interactive">
+            <span className="text-[8px] uppercase tracking-[0.4em] text-gold font-geist font-light leading-none" style={{ fontFamily: "'Geist', sans-serif" }}>
               Pizzeria
             </span>
-            <span
-              className="text-2xl font-playfair italic text-cream leading-none mt-0.5"
-              style={{ fontFamily: "'Playfair Display', serif" }}
-            >
+            <span className="text-2xl font-playfair italic text-cream leading-none mt-0.5" style={{ fontFamily: "'Playfair Display', serif" }}>
               Balbi
             </span>
           </a>
@@ -73,20 +73,45 @@ export default function Navigation() {
             ))}
           </ul>
 
-          <a
-            href="tel:+393773727225"
-            className="interactive hidden md:block btn-gold text-[10px]"
-            style={{ fontFamily: "'Geist', sans-serif" }}
-          >
-            Prenota
-          </a>
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              type="button"
+              onClick={onAccountOpen}
+              className="interactive w-9 h-9 rounded-full flex items-center justify-center transition-colors duration-200"
+              style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(201,162,39,0.2)' }}
+              aria-label="Il mio account"
+            >
+              <User size={15} className="text-cream/60" />
+            </button>
+            <button
+              type="button"
+              onClick={openOrdering}
+              className="relative interactive btn-gold text-[10px] flex items-center gap-2"
+              style={{ fontFamily: "'Geist', sans-serif" }}
+            >
+              <ShoppingBag size={13} />
+              Ordina Ora
+              {cartCount > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full text-[9px] flex items-center justify-center text-[#0f0e0d] font-bold" style={{ background: '#e8c547' }}>
+                  {cartCount}
+                </span>
+              )}
+            </button>
+          </div>
 
-          <button
-            className="interactive md:hidden text-cream p-1"
-            onClick={() => setOpen(!open)}
-          >
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          <div className="flex items-center gap-3 md:hidden">
+            {cartCount > 0 && (
+              <button type="button" onClick={openOrdering} className="relative interactive" aria-label="Carrello">
+                <ShoppingBag size={20} className="text-gold" />
+                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full text-[9px] flex items-center justify-center text-[#0f0e0d] font-bold" style={{ background: '#e8c547' }}>
+                  {cartCount}
+                </span>
+              </button>
+            )}
+            <button className="interactive text-cream p-1" onClick={() => setOpen(!open)}>
+              {open ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -103,21 +128,29 @@ export default function Navigation() {
             key={link.href}
             onClick={() => handleNavClick(link.href)}
             className="interactive text-3xl font-playfair italic text-cream hover:text-gold transition-colors duration-200"
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              transitionDelay: open ? `${i * 50}ms` : '0ms',
-            }}
+            style={{ fontFamily: "'Playfair Display', serif", transitionDelay: open ? `${i * 50}ms` : '0ms' }}
           >
             {link.label}
           </button>
         ))}
-        <a
-          href="tel:+393773727225"
-          className="interactive btn-gold mt-4"
+        <button
+          type="button"
+          className="interactive btn-gold mt-4 flex items-center gap-2"
           style={{ fontFamily: "'Geist', sans-serif" }}
+          onClick={openOrdering}
         >
-          Prenota un Tavolo
-        </a>
+          <ShoppingBag size={15} />
+          Ordina Ora
+        </button>
+        <button
+          type="button"
+          className="interactive btn-outline-gold flex items-center gap-2 text-xs"
+          style={{ fontFamily: "'Geist', sans-serif" }}
+          onClick={() => { setOpen(false); onAccountOpen(); }}
+        >
+          <User size={13} />
+          Il Mio Account
+        </button>
       </div>
     </>
   );
