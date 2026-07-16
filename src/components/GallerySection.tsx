@@ -3,27 +3,27 @@ import { X, ZoomIn } from 'lucide-react';
 
 const images = [
   {
-    src: '/images/menu/ChatGPT_Image_15_lug_2026,_15_03_18.png',
+    src: '/images/menu/ChatGPT_Image_15_lug_2026,_15_03_18 copy.png',
     alt: 'Pizza napoletana Balbi',
     tall: true,
   },
   {
-    src: '/images/menu/ChatGPT_Image_15_lug_2026,_15_02_00.png',
+    src: '/images/menu/ChatGPT_Image_15_lug_2026,_15_02_00 copy.png',
     alt: 'Pizza nel forno Balbi',
     tall: false,
   },
   {
-    src: '/images/desserts/ChatGPT_Image_15_lug_2026,_14_57_52.png',
+    src: '/images/desserts/ChatGPT_Image_15_lug_2026,_14_57_52 copy.png',
     alt: 'Dolci artigianali Balbi',
     tall: false,
   },
   {
-    src: '/images/craft-beers/ChatGPT_Image_15_lug_2026,_15_04_59.png',
+    src: '/images/craft-beers/ChatGPT_Image_15_lug_2026,_15_04_59 copy.png',
     alt: 'Birre artigianali Balbi',
     tall: true,
   },
   {
-    src: '/images/team/ChatGPT_Image_15_lug_2026,_15_06_56.png',
+    src: '/images/team/ChatGPT_Image_15_lug_2026,_15_06_56 copy.png',
     alt: 'Team Pizzeria Balbi',
     tall: false,
   },
@@ -58,7 +58,6 @@ export default function GallerySection() {
   return (
     <section id="galleria" className="relative py-32 bg-charcoal">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        {/* Header */}
         <div ref={headerRef} className="text-center mb-16">
           <div
             className={`reveal ${headerVisible ? 'visible' : ''} font-geist text-[10px] uppercase tracking-[0.5em] text-gold`}
@@ -68,10 +67,7 @@ export default function GallerySection() {
           </div>
           <h2
             className={`reveal reveal-delay-1 ${headerVisible ? 'visible' : ''} font-playfair text-cream mt-4`}
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: 'clamp(2rem, 4vw, 3.5rem)',
-            }}
+            style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}
           >
             L'Atmosfera
             <br />
@@ -79,7 +75,6 @@ export default function GallerySection() {
           </h2>
         </div>
 
-        {/* Masonry grid */}
         <div className="masonry-grid">
           {images.map((img, i) => (
             <button
@@ -109,16 +104,12 @@ export default function GallerySection() {
                   <ZoomIn size={16} className="text-[#0f0e0d]" />
                 </div>
               </div>
-              {/* Gold border on hover */}
-              <div
-                className="absolute inset-0 border border-gold/0 group-hover:border-gold/30 transition-all duration-300 rounded-sm pointer-events-none"
-              />
+              <div className="absolute inset-0 border border-gold/0 group-hover:border-gold/30 transition-all duration-300 rounded-sm pointer-events-none" />
             </button>
           ))}
         </div>
       </div>
 
-      {/* Lightbox */}
       {lightbox && (
         <div
           className="fixed inset-0 z-[9998] bg-[#0f0e0d]/96 backdrop-blur-xl flex items-center justify-center p-6"

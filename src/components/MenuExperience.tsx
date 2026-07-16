@@ -39,7 +39,6 @@ function PizzaSection() {
 
   return (
     <div className="mt-10">
-      {/* Visual header */}
       <div className="menu-pizza-hero">
         <img
           src="/images/menu/ChatGPT_Image_15_lug_2026,_15_02_00 copy.png"
@@ -54,7 +53,6 @@ function PizzaSection() {
         </div>
       </div>
 
-      {/* Category sub-tabs */}
       <div className="menu-cattabs mt-8" role="tablist">
         {pizzaCategories.map(c => (
           <button
@@ -63,14 +61,13 @@ function PizzaSection() {
             role="tab"
             aria-selected={cat === c}
             onClick={() => setCat(c)}
-            className={`menu-cattab ${cat === c ? 'active' : ''}`}
+            className={`menu-cattab${cat === c ? ' active' : ''}`}
           >
             {c}
           </button>
         ))}
       </div>
 
-      {/* Pizza grid */}
       <div className="pizza-menu-grid mt-7" key={cat}>
         {shown.map((p, i) => (
           <article
@@ -132,7 +129,6 @@ export default function MenuExperience() {
           </h1>
         </header>
 
-        {/* Main tabs */}
         <div className="menu-exp-tabs" role="tablist">
           {tabs.map(t => (
             <button
@@ -141,7 +137,7 @@ export default function MenuExperience() {
               role="tab"
               aria-selected={active === t.id}
               onClick={() => setActive(t.id)}
-              className={`menu-exp-tab ${active === t.id ? 'active' : ''}`}
+              className={`menu-exp-tab${active === t.id ? ' active' : ''}`}
             >
               {t.label}
               {active === t.id && <ChevronRight size={11} className="inline ml-1 opacity-50" />}

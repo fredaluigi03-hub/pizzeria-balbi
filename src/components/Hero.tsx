@@ -24,7 +24,6 @@ export default function Hero() {
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
-      {/* Parallax image */}
       <div ref={imgRef} className="absolute inset-0 scale-110">
         <img
           src="/images/menu/ChatGPT_Image_15_lug_2026,_15_03_18 copy.png"
@@ -34,11 +33,9 @@ export default function Hero() {
         />
       </div>
 
-      {/* Overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0f0e0d]/60 via-[#0f0e0d]/30 to-[#0f0e0d]/90" />
       <div className="absolute inset-0 bg-gradient-to-r from-[#0f0e0d]/40 via-transparent to-[#0f0e0d]/20" />
 
-      {/* Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center px-6 text-center">
         <div className="flex flex-col items-center gap-6">
           <div
@@ -91,7 +88,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
       <button
         onClick={scrollToForno}
         className="interactive absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-float"
@@ -105,7 +101,6 @@ export default function Hero() {
         <ChevronDown size={16} className="text-gold opacity-60" />
       </button>
 
-      {/* Bottom gradient */}
       <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#0f0e0d] to-transparent" />
     </section>
   );

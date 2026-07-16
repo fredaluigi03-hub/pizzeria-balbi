@@ -42,9 +42,8 @@ export default function Navigation() {
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <a
-            href="#"
+            href="/"
             className="flex flex-col items-start interactive"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <span
               className="text-[8px] uppercase tracking-[0.4em] text-gold font-geist font-light leading-none"
@@ -91,7 +90,6 @@ export default function Navigation() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
       <div
         className="fixed inset-0 z-40 bg-[#0f0e0d]/98 backdrop-blur-xl flex flex-col items-center justify-center gap-8 transition-all duration-500"
         style={{

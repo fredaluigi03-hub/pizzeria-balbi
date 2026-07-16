@@ -17,7 +17,6 @@ export default function TeamSection() {
 
   return (
     <section id="team" className="relative py-32 bg-charcoal-mid overflow-hidden">
-      {/* Background accent */}
       <div className="absolute inset-0 opacity-[0.03]"
         style={{
           backgroundImage: 'radial-gradient(ellipse at 50% 50%, #c9a227 0%, transparent 70%)',
@@ -26,12 +25,9 @@ export default function TeamSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
         <div ref={ref} className="grid md:grid-cols-2 gap-16 items-center">
-          {/* Image */}
-          <div
-            className={`reveal ${visible ? 'visible' : ''} relative overflow-hidden rounded-sm`}
-          >
+          <div className={`reveal ${visible ? 'visible' : ''} relative overflow-hidden rounded-sm`}>
             <img
-              src="/images/team/ChatGPT_Image_15_lug_2026,_15_06_56.png"
+              src="/images/team/ChatGPT_Image_15_lug_2026,_15_06_56 copy.png"
               alt="Il team di Pizzeria Balbi"
               className="w-full object-cover rounded-sm transition-transform duration-700 hover:scale-105"
               style={{ maxHeight: '600px', objectPosition: 'center top' }}
@@ -39,25 +35,16 @@ export default function TeamSection() {
               decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0d]/70 via-transparent to-transparent pointer-events-none" />
-
-            {/* Gold corner accent */}
             <div
               className="absolute top-4 right-4 w-12 h-12 opacity-60"
-              style={{
-                borderTop: '1px solid #c9a227',
-                borderRight: '1px solid #c9a227',
-              }}
+              style={{ borderTop: '1px solid #c9a227', borderRight: '1px solid #c9a227' }}
             />
             <div
               className="absolute bottom-4 left-4 w-12 h-12 opacity-60"
-              style={{
-                borderBottom: '1px solid #c9a227',
-                borderLeft: '1px solid #c9a227',
-              }}
+              style={{ borderBottom: '1px solid #c9a227', borderLeft: '1px solid #c9a227' }}
             />
           </div>
 
-          {/* Content */}
           <div>
             <div
               className={`reveal ${visible ? 'visible' : ''} font-geist text-[10px] uppercase tracking-[0.5em] text-gold`}
@@ -67,19 +54,14 @@ export default function TeamSection() {
             </div>
             <h2
               className={`reveal reveal-delay-1 ${visible ? 'visible' : ''} font-playfair text-cream mt-4`}
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: 'clamp(2rem, 4vw, 3.5rem)',
-              }}
+              style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}
             >
               Il Cuore
               <br />
               <span className="italic text-gold">di Balbi</span>
             </h2>
 
-            <div
-              className={`reveal reveal-delay-2 ${visible ? 'visible' : ''} flex items-center gap-4 mt-6`}
-            >
+            <div className={`reveal reveal-delay-2 ${visible ? 'visible' : ''} flex items-center gap-4 mt-6`}>
               <div className="divider-gold w-8" />
               <div className="divider-gold w-16" />
             </div>
@@ -101,10 +83,7 @@ export default function TeamSection() {
               ad ogni tavolo di Atripalda.
             </p>
 
-            {/* Hashtag */}
-            <div
-              className={`reveal reveal-delay-4 ${visible ? 'visible' : ''} mt-8 inline-flex items-center gap-3`}
-            >
+            <div className={`reveal reveal-delay-4 ${visible ? 'visible' : ''} mt-8 inline-flex items-center gap-3`}>
               <span
                 className="font-playfair italic text-gold text-lg"
                 style={{ fontFamily: "'Playfair Display', serif" }}
@@ -113,9 +92,7 @@ export default function TeamSection() {
               </span>
             </div>
 
-            <div
-              className={`reveal reveal-delay-5 ${visible ? 'visible' : ''} flex flex-wrap gap-3 mt-8`}
-            >
+            <div className={`reveal reveal-delay-5 ${visible ? 'visible' : ''} flex flex-wrap gap-3 mt-8`}>
               <a
                 href="https://instagram.com/pizzeriabalbi"
                 target="_blank"

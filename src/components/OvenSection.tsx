@@ -39,7 +39,6 @@ export default function OvenSection() {
 
   return (
     <section id="forno" className="relative overflow-hidden min-h-screen flex items-center">
-      {/* Parallax background */}
       <div ref={imgRef} className="absolute inset-0 scale-125">
         <img
           src="/images/menu/ChatGPT_Image_15_lug_2026,_15_02_00.png"
@@ -49,11 +48,9 @@ export default function OvenSection() {
         />
       </div>
 
-      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#0f0e0d]/95 via-[#0f0e0d]/80 to-[#0f0e0d]/50" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#0f0e0d] via-transparent to-[#0f0e0d]/60" />
 
-      {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-32 w-full">
         <div ref={statsRef} className="max-w-2xl">
           <div
@@ -84,7 +81,6 @@ export default function OvenSection() {
             raggiunge una temperatura di 485°C — il segreto di un cornicione perfetto.
           </p>
 
-          {/* Stats */}
           <div className="flex flex-col sm:flex-row gap-8 mt-14">
             {stats.map((stat, i) => (
               <div

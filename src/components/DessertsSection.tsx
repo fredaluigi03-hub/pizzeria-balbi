@@ -35,7 +35,11 @@ function DessertCard({ dessert, index }: { dessert: Dessert; index: number }) {
   }, []);
 
   return (
-    <article ref={ref} className="dessert-luxury-card interactive" style={{ opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(28px)', transitionDelay: `${index * 70}ms` }}>
+    <article
+      ref={ref}
+      className="dessert-luxury-card interactive"
+      style={{ opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(28px)', transitionDelay: `${index * 70}ms` }}
+    >
       <div className="dessert-luxury-image">
         <img src={DESSERT_IMAGE} alt={dessert.name} style={{ objectPosition: dessert.crop }} />
         <div className="dessert-luxury-overlay" />
@@ -73,7 +77,7 @@ export default function DessertsSection() {
           <p>Pasticceria artigianale</p>
           <h2>I Dolci <em>di Balbi</em></h2>
           <div className="dessert-heading-rule" />
-          <span>Tutti i dessert artigianali hanno un prezzo unico.</span>
+          <span>Ogni dessert viene preparato artigianalmente — tutti a €5.</span>
         </header>
 
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">

@@ -5,12 +5,10 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-[#0a0908] border-t border-white/5">
-      {/* Top gold line */}
       <div className="h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-14">
-          {/* Brand */}
           <div className="flex flex-col gap-6">
             <button onClick={scrollTop} className="interactive flex flex-col items-start">
               <span
@@ -44,7 +42,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links */}
           <div>
             <h4
               className="text-[10px] uppercase tracking-[0.4em] text-gold font-geist mb-6"
@@ -62,7 +59,7 @@ export default function Footer() {
                 { label: 'Galleria', href: '#galleria' },
                 { label: 'Prenota', href: '#contatti' },
               ].map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <a
                     href={link.href}
                     className="interactive text-cream/40 hover:text-gold transition-colors duration-200 font-geist text-sm"
@@ -81,7 +78,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h4
               className="text-[10px] uppercase tracking-[0.4em] text-gold font-geist mb-6"
@@ -119,7 +115,6 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Social */}
             <div className="flex gap-3 mt-8">
               <a
                 href="https://instagram.com/pizzeriabalbi"
@@ -149,7 +144,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom */}
         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p
             className="text-cream/25 font-geist text-xs"
