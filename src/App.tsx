@@ -5,7 +5,6 @@ import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import OvenSection from './components/OvenSection';
 import PizzaMenu from './components/PizzaMenu';
-import BeersSection from './components/BeersSection';
 import TeamSection from './components/TeamSection';
 import GallerySection from './components/GallerySection';
 import ContactSection from './components/ContactSection';
@@ -35,7 +34,6 @@ export default function App() {
           <Hero />
           <OvenSection />
           <PizzaMenu />
-          <BeersSection />
           <TeamSection />
           <GallerySection />
           <ContactSection />
