@@ -1,10 +1,17 @@
 import { useEffect, useRef } from 'react';
 
+// Disable custom cursor entirely on touch/pointer-coarse devices (mobile & tablet)
+const isTouchDevice =
+  window.matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
+
 export default function Cursor() {
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // If touch device, nothing to set up
+    if (isTouchDevice) return;
+
     const dot = dotRef.current;
     const ring = ringRef.current;
     if (!dot || !ring) return;
@@ -50,6 +57,9 @@ export default function Cursor() {
       window.removeEventListener('mouseover', onMouseOver);
     };
   }, []);
+
+  // On touch devices render nothing — native cursor is used
+  if (isTouchDevice) return null;
 
   return (
     <>

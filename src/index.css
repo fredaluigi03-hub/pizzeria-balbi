@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    cursor: none !important;
+  /* Only hide the native cursor on pointer-fine (mouse) devices.
+     Touch devices keep their native cursor. */
+  @media (pointer: fine) {
+    * {
+      cursor: none !important;
+    }
   }
 
   html {
