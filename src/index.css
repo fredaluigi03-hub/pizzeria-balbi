@@ -509,3 +509,85 @@ img { image-rendering: auto; }
 .pizza-menu-item p { margin: .35rem 0 0; color: rgba(240,236,228,.48); font: 400 .78rem/1.5 'Geist',sans-serif; }
 .pizza-menu-item strong { flex-shrink: 0; color: #e8c547; font: 400 1.55rem/1 'Playfair Display',serif; margin-top: 2px; }
 @media (max-width: 480px) { .pizza-menu-item { padding: 1.1rem 1.2rem; } .pizza-menu-item h2 { font-size: 1.25rem; } .pizza-menu-item strong { font-size: 1.35rem; } }
+
+/* ─── Enhanced Gallery ──────────────────────────────── */
+.gallery-featured {
+  height: 500px;
+  border: 1px solid rgba(201,162,39,.18);
+  box-shadow: 0 24px 60px rgba(0,0,0,.3);
+  transform-style: preserve-3d;
+}
+.gallery-featured-img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .9s cubic-bezier(.16,1,.3,1);
+}
+.gallery-featured:hover .gallery-featured-img { transform: scale(1.04); }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+@media (max-width: 640px) {
+  .gallery-featured { height: 300px; }
+  .gallery-grid { grid-template-columns: 1fr; }
+}
+.gallery-tile {
+  transform-style: preserve-3d;
+  transition: transform .45s cubic-bezier(.16,1,.3,1), border-color .35s ease, box-shadow .35s ease;
+  border: 1px solid rgba(201,162,39,.12);
+  box-shadow: 0 12px 30px rgba(0,0,0,.18);
+}
+.gallery-tile:hover, .gallery-tile:focus-visible {
+  border-color: rgba(232,197,71,.55);
+  box-shadow: 0 24px 48px rgba(0,0,0,.38), 0 0 28px rgba(201,162,39,.14);
+  outline: none;
+}
+.gallery-tile-img {
+  width: 100%; height: 320px; object-fit: cover; display: block;
+  transition: transform .7s cubic-bezier(.16,1,.3,1);
+}
+@media (max-width: 640px) {
+  .gallery-tile-img { height: 260px; }
+}
+
+/* ─── Takeaway Section ──────────────────────────────── */
+.takeaway-card {
+  background: linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.02));
+  border: 1px solid rgba(201,162,39,.2);
+  border-radius: 16px;
+  padding: 2.2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 22px 54px rgba(0,0,0,.26);
+  transition: transform .45s cubic-bezier(.16,1,.3,1), border-color .35s ease, box-shadow .35s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.takeaway-card:hover {
+  transform: translateY(-8px) !important;
+  border-color: rgba(201,162,39,.55);
+  box-shadow: 0 34px 64px rgba(0,0,0,.38), 0 0 32px rgba(201,162,39,.13);
+}
+.takeaway-card-icon {
+  width: 54px; height: 54px; border-radius: 14px; border: 1px solid;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(8px);
+}
+.takeaway-cta-btn {
+  display: flex; align-items: center; justify-content: center;
+  padding: 1rem 2rem; border-radius: 6px;
+  font: 600 11px 'Geist', sans-serif;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: #0f0e0d; text-decoration: none;
+  transition: transform .3s ease, filter .3s ease, box-shadow .3s ease;
+  min-height: 52px;
+}
+.takeaway-cta-btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
+@media (max-width: 640px) {
+  .takeaway-card { padding: 1.8rem 1.5rem 1.7rem; border-radius: 12px; }
+  .takeaway-card:hover { transform: translateY(-3px) !important; }
+}
