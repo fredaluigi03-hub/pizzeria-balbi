@@ -516,40 +516,60 @@ img { image-rendering: auto; }
 
 /* ─── Enhanced Gallery ──────────────────────────────── */
 .gallery-featured {
-  height: 500px;
+  height: 520px;
   border: 1px solid rgba(201,162,39,.18);
-  box-shadow: 0 24px 60px rgba(0,0,0,.3);
+  box-shadow: 0 24px 60px rgba(0,0,0,.32);
   transform-style: preserve-3d;
 }
 .gallery-featured-img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-  transition: transform .9s cubic-bezier(.16,1,.3,1);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transition: transform 1s cubic-bezier(.16,1,.3,1);
 }
-.gallery-featured:hover .gallery-featured-img { transform: scale(1.04); }
+.gallery-featured:hover .gallery-featured-img {
+  transform: scale(1.06);
+}
 
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px;
+  gap: 12px;
+  margin-top: 12px;
 }
 @media (max-width: 640px) {
   .gallery-featured { height: 300px; }
-  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 }
+
 .gallery-tile {
   transform-style: preserve-3d;
-  transition: transform .45s cubic-bezier(.16,1,.3,1), border-color .35s ease, box-shadow .35s ease;
-  border: 1px solid rgba(201,162,39,.12);
-  box-shadow: 0 12px 30px rgba(0,0,0,.18);
+  transition: transform .55s cubic-bezier(.16,1,.3,1), border-color .35s ease, box-shadow .4s ease;
+  border: 1px solid rgba(201,162,39,.14);
+  box-shadow: 0 12px 32px rgba(0,0,0,.2);
 }
 .gallery-tile:hover, .gallery-tile:focus-visible {
-  border-color: rgba(232,197,71,.55);
-  box-shadow: 0 24px 48px rgba(0,0,0,.38), 0 0 28px rgba(201,162,39,.14);
+  border-color: rgba(232,197,71,.6);
+  box-shadow: 0 28px 56px rgba(0,0,0,.42), 0 0 32px rgba(201,162,39,.15);
   outline: none;
 }
+
 .gallery-tile-img {
-  width: 100%; height: 320px; object-fit: cover; display: block;
-  transition: transform .7s cubic-bezier(.16,1,.3,1);
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transition: transform .8s cubic-bezier(.16,1,.3,1);
+}
+.gallery-tile:hover .gallery-tile-img,
+.gallery-tile:focus-visible .gallery-tile-img {
+  transform: scale(1.07);
 }
 @media (max-width: 640px) {
   .gallery-tile-img { height: 260px; }

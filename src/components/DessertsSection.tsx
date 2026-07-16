@@ -10,14 +10,22 @@ type Dessert = {
 };
 
 const desserts: Dessert[] = [
-  { name: 'Rocher', crop: '18% 15%', accent: '#c8a84b', note: 'Croccante e avvolgente' },
-  { name: 'Porcellino Rosa', crop: '72% 16%', accent: '#f4a7b9', note: 'Dolcezza irresistibile' },
-  { name: 'Mela Caramellata', crop: '50% 18%', accent: '#d4813a', note: 'Fresca e croccante' },
-  { name: 'Pistacchio', crop: '25% 62%', accent: '#8bb53f', note: 'Crema di pistacchio di Bronte' },
-  { name: 'Cheesecake', crop: '68% 64%', accent: '#e8c547', note: 'Morbida e cremosa' },
-  { name: 'Tortino al Cioccolato', crop: '44% 84%', accent: '#7a5241', note: 'Cuore caldo fondente' },
-  { name: 'Cookie Cream', crop: '83% 76%', accent: '#b0956a', note: 'Friabile e goloso' },
-  { name: 'Millefoglie', crop: '10% 80%', accent: '#deb66a', note: 'Pasta sfoglia e crema pasticcera' },
+  // Top-left cluster — dark chocolate sphere (Rocher)
+  { name: 'Rocher', crop: '8% 10%', accent: '#c8a84b', note: 'Croccante e avvolgente' },
+  // Top-center — pink-glazed treat (Porcellino Rosa)
+  { name: 'Porcellino Rosa', crop: '50% 8%', accent: '#f4a7b9', note: 'Dolcezza irresistibile' },
+  // Top-right — caramel tones (Mela Caramellata)
+  { name: 'Mela Caramellata', crop: '90% 10%', accent: '#d4813a', note: 'Fresca e croccante' },
+  // Mid-left — green pistachio cream (Pistacchio)
+  { name: 'Pistacchio', crop: '12% 52%', accent: '#8bb53f', note: 'Crema di pistacchio di Bronte' },
+  // Mid-center — pale cheesecake (Cheesecake)
+  { name: 'Cheesecake', crop: '50% 50%', accent: '#e8c547', note: 'Morbida e cremosa' },
+  // Mid-right — dark molten center (Tortino al Cioccolato)
+  { name: 'Tortino al Cioccolato', crop: '88% 52%', accent: '#7a5241', note: 'Cuore caldo fondente' },
+  // Bottom-left — crumbly biscuit texture (Cookie Cream)
+  { name: 'Cookie Cream', crop: '20% 90%', accent: '#b0956a', note: 'Friabile e goloso' },
+  // Bottom-right — layered pastry (Millefoglie)
+  { name: 'Millefoglie', crop: '80% 92%', accent: '#deb66a', note: 'Pasta sfoglia e crema pasticcera' },
 ];
 
 function DessertCard({ dessert, index }: { dessert: Dessert; index: number }) {

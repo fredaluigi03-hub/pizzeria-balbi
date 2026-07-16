@@ -150,6 +150,18 @@ export default function MenuExperience() {
 
       {active === 'dolci' && <DessertsSection />}
       {active === 'birre' && <BeersSection showDrinks />}
+
+      {/* Bottom navigation — especially helpful on mobile after scrolling */}
+      <div className="mx-auto max-w-7xl px-5 sm:px-8 md:px-12 pt-16 pb-4 flex justify-center">
+        <a
+          href="/"
+          className="interactive inline-flex items-center gap-3 px-7 py-3.5 rounded-sm font-geist text-[10px] uppercase tracking-[0.28em] text-cream/60 hover:text-gold border border-cream/10 hover:border-gold/40 transition-all duration-300"
+          style={{ fontFamily: "'Geist', sans-serif", background: 'rgba(255,255,255,0.03)' }}
+        >
+          <ArrowLeft size={13} />
+          Torna alla home
+        </a>
+      </div>
     </main>
   );
 }

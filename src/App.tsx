@@ -50,7 +50,7 @@ function HomePage() {
 }
 
 export default function App() {
-  if (window.location.pathname === '/menu') return <OrderProvider><MenuExperience /></OrderProvider>;
+  if (window.location.pathname === '/menu') return <OrderProvider><Cursor /><MenuExperience /></OrderProvider>;
   return (
     <OrderProvider>
       <HomePage />
